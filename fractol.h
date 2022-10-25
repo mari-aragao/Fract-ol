@@ -13,7 +13,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 # include "mlx/mlx.h"
-# define SIZE_WIN	600	
+# define SIZE_WIN	800	
 
 typedef struct	s_complex
 {
