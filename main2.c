@@ -6,7 +6,7 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:28:37 by maragao           #+#    #+#             */
-/*   Updated: 2022/10/25 20:10:12 by maragao          ###   ########.rio      */
+/*   Updated: 2022/10/25 20:31:54 by maragao          ###   ########.rio      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ void	put_mandaobroto(t_data img)
 			while (interation < 1000)
 			{
 				z_temp = z.re;
-				z.re = (fabs((z.re * z.re)) - (z.im * z.im)) + c.re;
-				z.im = (2 * z_temp * z.im) + c.im;
+				z.re = ((z.re * z.re) - (z.im * z.im)) + c.re;
+				z.im = (fabs(2 * z_temp * z.im)) + c.im;
 				if (((z.re * z.re) + (z.im * z.im)) > 4)
 					break;
 				interation++;
@@ -186,7 +186,7 @@ int main()
 	void	*win_mlx;
 	t_data	img;
 
-	img.zoom = 0.5;
+	img.zoom = 1.0;
 	mlx_ptr = mlx_init();
 	win_mlx = mlx_new_window(mlx_ptr, SIZE_WIN, SIZE_WIN,"tudo nos conformes");
 	img.img = mlx_new_image(mlx_ptr, SIZE_WIN, SIZE_WIN);
