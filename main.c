@@ -20,6 +20,24 @@ void	my_mlx_pixel_put(t_data *img, int x, int y, int color)
 	*(unsigned int *)dest = color;
 }
 
+int	exit_hook(void *img)
+{
+	(void)img;
+	exit(0);
+}
+
+int	key_press_hook(int key, void *img)
+{
+	if(key == 53)
+		exit_hook(img);
+	return (0);
+}
+void	set_hook(void *win_mlx, t_data *img)
+{
+	mlx_hook(win_mlx, 2, 0, key_press_hook, img);
+	mlx_hook(win_mlx, 17, 0, exit_hook, img);
+}
+
 void	put_color(t_data img, int x, int y, int interation)
 {
 			if (interation < 2)
@@ -95,7 +113,7 @@ int main()
 	win_mlx = mlx_new_window(mlx_ptr, SIZE_WIN, SIZE_WIN,"tudo nos conformes");
 	img.img = mlx_new_image(mlx_ptr, SIZE_WIN, SIZE_WIN);
 	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_lenght, &img.endian);
-	
+	set_hook(win_mlx, &img);	
 	put_mandaobroto(img);
 	mlx_put_image_to_window(mlx_ptr, win_mlx, img.img, 0, 0);
 	mlx_loop(mlx_ptr);
