@@ -6,7 +6,7 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:18:04 by maragao           #+#    #+#             */
-/*   Updated: 2022/10/01 16:57:46 by maragao          ###   ########.rio      */
+/*   Updated: 2022/10/25 20:09:02 by maragao          ###   ########.rio      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define FRACTOL_H
 # include "mlx/mlx.h"
 # include <stdlib.h>
+# include <math.h>
 # define SIZE_WIN	800	
+
 
 typedef struct	s_complex
 {
@@ -29,6 +31,7 @@ typedef struct	s_data
 	int		bpp; //bits per pixel
 	int		line_lenght;
 	int		endian;
+	double	zoom;
 }				t_data;
 
 #endif
