@@ -1,4 +1,4 @@
-SRCS	= main2.c
+SRCS	= main.c color.c hook.c julia.c mandelbrot.c utils.c
 
 OBJS	= ${SRCS:.c=.o}
 

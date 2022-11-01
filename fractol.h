@@ -6,7 +6,7 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:18:04 by maragao           #+#    #+#             */
-/*   Updated: 2022/10/25 20:09:02 by maragao          ###   ########.rio      */
+/*   Updated: 2022/10/27 18:20:56 by maragao          ###   ########.rio      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,15 @@ typedef struct	s_data
 	double	zoom;
 }				t_data;
 
+void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
+int		exit_hook(void *img);
+int		key_press_hook(int key, void *img);
+void	set_hook(void *win_mlx, t_data *img);
+void	put_color(t_data img, int x, int y, int interation);
+void	mandelbrot(t_data img);
+void	julia(t_data img);
+void	burning_ship(t_data img);
+int		main(int argc, char	**argv);
+
 #endif
+
