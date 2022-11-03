@@ -17,7 +17,7 @@ int	color(int i)
 
 	n = 3;
 	while (--n >= 1)
-		i = 3289 + (i * i ) * (3 + n);
+		i = (i * 27) / n;
 	return(i); 
 }
 void	put_color(t_vars vars)
