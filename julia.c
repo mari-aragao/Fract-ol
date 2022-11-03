@@ -12,39 +12,34 @@
 
 #include "fractol.h"
 
-void	julia(t_data img)
+void	julia(t_vars vars)
 {
-	t_complex	c;
-	t_complex	z;
-	int y;
-	int x;
-	int interation;
 	double	z_temp;
 
-	c.re = 0.285;
-	c.im = 0.01;
-	y = 0;
-	while (y < SIZE_WIN)
+	vars.c.re = 0.285;
+	vars.c.im = 0.01;
+	vars.y = 0;
+	while (vars.y < SIZE_WIN)
 	{
-		x = 0;
-		while (x < SIZE_WIN)
+		vars.x = 0;
+		while (vars.x < SIZE_WIN)
 		{
-			z.im = (y - SIZE_WIN / 2.0) * 4.0 / (SIZE_WIN / img.zoom);
-			z.re = (x - SIZE_WIN / 2.0) * 4.0  / (SIZE_WIN / img.zoom);
-			interation = 0;
-			while (interation < 1000)
+			vars.z.im = (vars.y - SIZE_WIN / 2.0) * 4.0 / (SIZE_WIN / vars.zoom);
+			vars.z.re = (vars.x - SIZE_WIN / 2.0) * 4.0  / (SIZE_WIN / vars.zoom);
+			vars.interation = 0;
+			while (vars.interation < 1000)
 			{
-				z_temp = z.re;
-				z.re = ((z.re * z.re) - (z.im * z.im)) + c.re;
-				z.im = (2 * z_temp * z.im) + c.im;
-				if (((z.re * z.re) + (z.im * z.im)) > 4)
+				z_temp = vars.z.re;
+				vars.z.re = ((vars.z.re * vars.z.re) - (vars.z.im * vars.z.im)) + vars.c.re;
+				vars.z.im = (2 * z_temp * vars.z.im) + vars.c.im;
+				if (((vars.z.re * vars.z.re) + (vars.z.im * vars.z.im)) > 4)
 					break;
-				interation++;
+				vars.interation++;
 			}
-			if (interation != 1000)
-				put_color(img, x, y, interation);
-			x++;
+			if (vars.interation != 1000)
+				put_color(vars);
+			vars.x++;
 		}
-		y++;
+		vars.y++;
 	}
 }

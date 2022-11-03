@@ -24,24 +24,31 @@ typedef struct	s_complex
 	double	im;
 }				t_complex;
 
-typedef struct	s_data
+typedef struct	s_vars
 {
+	void	*mlx;
+	void	*win;
 	void	*img;
 	char	*addr;
 	int		bpp; //bits per pixel
 	int		line_lenght;
 	int		endian;
+	t_complex	c;
+	t_complex	z;
+	int	x;
+	int	y;
+	int	interation;
 	double	zoom;
-}				t_data;
+}				t_vars;
 
-void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
-int		exit_hook(void *img);
-int		key_press_hook(int key, void *img);
-void	set_hook(void *win_mlx, t_data *img);
-void	put_color(t_data img, int x, int y, int interation);
-void	mandelbrot(t_data img);
-void	julia(t_data img);
-void	burning_ship(t_data img);
+void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color);
+int		exit_hook(void *vars);
+int		key_press_hook(int key, void *vars);
+void	set_hook(void *win, t_vars *vars);
+void	put_color(t_vars vars);
+void	mandelbrot(t_vars vars);
+void	julia(t_vars vars);
+void	burning_ship(t_vars vars);
 int		main(int argc, char	**argv);
 
 #endif

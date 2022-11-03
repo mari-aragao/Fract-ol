@@ -12,40 +12,35 @@
 
 #include "fractol.h"
 
-void	burning_ship(t_data img)
+void	burning_ship(t_vars vars) 
 {
-	t_complex	c;
-	t_complex	z;
-	int y;
-	int x;
-	int interation;
 	double	z_temp;
 
-	y = 0;
-	while (y < SIZE_WIN)
+	vars.y = 0;
+	while (vars.y < SIZE_WIN)
 	{
-		x = 0;
-		c.im = (y - SIZE_WIN / 2.0) * 4.0 / (SIZE_WIN / img.zoom);
-		while (x < SIZE_WIN)
+		vars.x = 0;
+		vars.c.im = (vars.y - SIZE_WIN / 2.0) * 4.0 / (SIZE_WIN / vars.zoom);
+		while (vars.x < SIZE_WIN)
 		{
-			c.re = (x - SIZE_WIN / 2.0) * 4.0  / (SIZE_WIN / img.zoom);
-			z.re = 0;
-			z.im = 0;
-			interation = 0;
-			while (interation < 1000)
+			vars.c.re = (vars.x - SIZE_WIN / 2.0) * 4.0  / (SIZE_WIN / vars.zoom);
+			vars.z.re = 0;
+			vars.z.im = 0;
+			vars.interation = 0;
+			while (vars.interation < 1000)
 			{
-				z_temp = z.re;
-				z.re = ((z.re * z.re) - (z.im * z.im)) + c.re;
-				z.im = (fabs(2 * z_temp * z.im)) + c.im;
-				if (((z.re * z.re) + (z.im * z.im)) > 4)
+				z_temp = vars.z.re;
+				vars.z.re = ((vars.z.re * vars.z.re) - (vars.z.im * vars.z.im)) + vars.c.re;
+				vars.z.im = (fabs(2 * z_temp * vars.z.im)) + vars.c.im;
+				if (((vars.z.re * vars.z.re) + (vars.z.im * vars.z.im)) > 4)
 					break;
-				interation++;
+				vars.interation++;
 			}
-			if (interation != 1000)
-				put_color(img, x, y, interation);
-			x++;
+			if (vars.interation != 1000)
+				put_color(vars);
+			vars.x++;
 		}
-		y++;
+		vars.y++;
 	}
 }
 

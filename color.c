@@ -12,31 +12,31 @@
 
 #include "fractol.h"
 
-void	put_color(t_data img, int x, int y, int interation)
+void	put_color(t_vars vars)
 {
-			if (interation < 2)
-				my_mlx_pixel_put(&img, x, y, 0x005452);
-			if (interation >= 2 && interation < 3)
-				my_mlx_pixel_put(&img, x, y, 0x006465);
-			if (interation >= 3 && interation < 4)
-				my_mlx_pixel_put(&img, x, y, 0x007476);
-			if (interation >= 4 && interation < 6)
-				my_mlx_pixel_put(&img, x, y, 0x008489);
-			if (interation >= 6 && interation < 8)
-				my_mlx_pixel_put(&img, x, y, 0x1C9997);
-			if (interation >= 8 && interation < 12)
-				my_mlx_pixel_put(&img, x, y, 0x48A3A7);
-			if (interation >= 12 && interation < 20)
-				my_mlx_pixel_put(&img, x, y, 0x7AB4AD);
-			if (interation >= 20 && interation < 40)
-				my_mlx_pixel_put(&img, x, y, 0x93C2C4);
-			if (interation >= 40 && interation < 60)
-				my_mlx_pixel_put(&img, x, y, 0xA4C9BB);
-			if (interation >= 60 && interation < 90)
-				my_mlx_pixel_put(&img, x, y, 0xB7D2B6);
-			if (interation >= 90 && interation < 200)
-				my_mlx_pixel_put(&img, x, y, 0xE1EDE0);
-			if (interation >= 200 && interation < 1000)
-				my_mlx_pixel_put(&img, x, y, 0xFFFFFF);
+			if (vars.interation < 2)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0x005452);
+			if (vars.interation >= 2 && vars.interation < 3)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0x006465);
+			if (vars.interation >= 3 && vars.interation < 4)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0x007476);
+			if (vars.interation >= 4 && vars.interation < 6)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0x008489);
+			if (vars.interation >= 6 && vars.interation < 8)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0x1C9997);
+			if (vars.interation >= 8 && vars.interation < 12)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0x48A3A7);
+			if (vars.interation >= 12 && vars.interation < 20)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0x7AB4AD);
+			if (vars.interation >= 20 && vars.interation < 40)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0x93C2C4);
+			if (vars.interation >= 40 && vars.interation < 60)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0xA4C9BB);
+			if (vars.interation >= 60 && vars.interation < 90)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0xB7D2B6);
+			if (vars.interation >= 90 && vars.interation < 200)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0xE1EDE0);
+			if (vars.interation >= 200 && vars.interation < 1000)
+				my_mlx_pixel_put(&vars, vars.x, vars.y, 0xFFFFFF);
 
 }

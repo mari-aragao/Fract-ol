@@ -14,21 +14,19 @@
 
 int main(int argc, char **argv)
 {
-	void	*mlx_ptr;
-	void	*win_mlx;
-	t_data	img;
+	t_vars	vars;
 
 	(void)argv;
 	(void)argc;
-	img.zoom = 1.0;
-	mlx_ptr = mlx_init();
-	win_mlx = mlx_new_window(mlx_ptr, SIZE_WIN, SIZE_WIN,"tudo nos conformes");
-	img.img = mlx_new_image(mlx_ptr, SIZE_WIN, SIZE_WIN);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.line_lenght, &img.endian);
-	set_hook(win_mlx, &img);
-	mandelbrot(img);
-	mlx_put_image_to_window(mlx_ptr, win_mlx, img.img, 0, 0);
-	mlx_loop(mlx_ptr);
+	vars.zoom = 1.0;
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, SIZE_WIN, SIZE_WIN,"Fract'ol");
+	vars.img= mlx_new_image(vars.mlx, SIZE_WIN, SIZE_WIN);
+	vars.addr = mlx_get_data_addr(vars.img, &vars.bpp, &vars.line_lenght, &vars.endian);
+	set_hook(vars.win, &vars);
+	mandelbrot(vars);
+	mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);
+	mlx_loop(vars.mlx);
 
-	return 0;
+	return (0);
 }
