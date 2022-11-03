@@ -16,8 +16,6 @@ void	julia(t_vars vars)
 {
 	double	z_temp;
 
-	vars.c.re = 0.285;
-	vars.c.im = 0.01;
 	vars.y = 0;
 	while (vars.y < SIZE_WIN)
 	{
