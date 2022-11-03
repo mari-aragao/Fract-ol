@@ -14,7 +14,7 @@ CFLAGS	= -Wall -Wextra -Werror
 ${NAME}:	all
 
 all:	${OBJS}
-	cd mlx && make
+	cd mlx && make &> /dev/null
 	cc ${CFLAGS} ${OBJS} ${FLAGSMLX} -o ${NAME}
 
 clean:
