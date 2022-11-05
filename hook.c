@@ -6,7 +6,7 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:15:05 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/04 21:43:36 by maragao          ###   ########.fr       */
+/*   Updated: 2022/11/04 21:50:12 by maragao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	key_press_hook(int key, t_vars *vars)
 #include <stdio.h>
 int	mouse_hook(int key, int x, int y, t_vars *vars)
 {
-	double	zoom_temp;
-
 	(void)x;
 	(void)y;
 	if (key == 4)
