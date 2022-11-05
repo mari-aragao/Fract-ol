@@ -6,7 +6,7 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:15:05 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/04 21:50:12 by maragao          ###   ########.fr       */
+/*   Updated: 2022/11/04 21:55:13 by maragao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	exit_hook(t_vars *vars)
 int	key_press_hook(int key, t_vars *vars)
 {
 	if (key == 123)
-		vars->key_x -= 0.2 / vars->zoom;
+		vars->key_x -= 0.2 * vars->zoom;
 	else if (key == 124)
-		vars->key_x += 0.2 / vars->zoom;
+		vars->key_x += 0.2 * vars->zoom;
 	else if (key == 125)
-		vars->key_y += 0.2 / vars->zoom;
+		vars->key_y += 0.2 * vars->zoom;
 	else if (key == 126)
-		vars->key_y -= 0.2 / vars-> zoom;
+		vars->key_y -= 0.2 * vars-> zoom;
 	else if (key == 53)
 		exit_hook(vars);
 	mlx_destroy_image(vars->mlx, vars->img);
