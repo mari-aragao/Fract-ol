@@ -6,7 +6,7 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:11:04 by maragao           #+#    #+#             */
-/*   Updated: 2022/10/27 18:11:50 by maragao          ###   ########.rio      */
+/*   Updated: 2022/11/04 17:04:13 by maragao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,72 @@
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(s1[i] != 0 && s1[i] == s2[i])
+	while (s1[i] != 0 && s1[i] == s2[i])
 		i++;
-	return(s1[i] - s2[i]);
+	return (s1[i] - s2[i]);
+}
+
+int	ft_atoi(const char *nptr)
+{
+	int	i;
+	int	res;
+	int	isneg;
+
+	i = 0;
+	res = 0;
+	isneg = 0;
+	if (nptr[i] == '-')
+	{
+		isneg = 1;
+		i++;
+	}
+	while (nptr[i] != 0 && (nptr[i] >= '0' && nptr[i] <= '9'))
+		res = (res * 10) + (nptr[i++] - '0');
+	if (isneg == 1)
+		res = -res;
+	return (res);
+}
+
+int	atod_check(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != 0)
+	{
+		if ((s[i] >= '0' && s[i] <= '9') || s[i] == '.' || s[0] == '-')
+			i++;
+		else
+			return (-1);
+	}
+	return (0);
 }
 
 double	ft_atod(char *s)
 {
-	int i;
-	int len;	
+	int		i;
+	int		len;
 	double	res;
-	
+	double	dec;
+
+	if (atod_check(s) == -1)
+		return (-1);
+	res = ft_atoi(s);
 	i = 0;
-	while (s[i] != 0)
-	{
-		if ((s[i] >= '0' && s[i]<= '9') || s[i] == '.' || s[0] == '-')
-			i++;
-		else
-			return(-1);
-	}
-	len = 0;
-	while (s[len] != 0)
-		len++;
-	res = 0.0;
-	i = 2;
-	if (s[0] == '-')
+	while (s[i] != 0 && s[i] != '.')
 		i++;
-	while (i < len)
-		res = res * 10 + (s[i++] - '0');
-	if (s[0] == '-')
+	len = 0;
+	if (s[i] == '.')
 	{
-		res = -res;
-		len--;
+		i++;
+		dec = ft_atoi(&s[i]);
+		while (s[i++] != 0)
+			len++;
 	}
-	while (--len > 1)
-		res = res / 10;
-	if (s[0] >= '0' && s[0] <= '9')
-		res = res + (s[0] - '0');
-	if (s[1] >= '0' && s[1] <= '9')
-		res = res + (s[1] - '0');
-	return(res);
-}
-
-
-void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color)
-{
-	char	*dest;
-
-	dest = vars->addr + (y * vars -> line_lenght + x * (vars -> bpp / 8));
-	*(unsigned int *)dest = color;
+	while (len-- > 0)
+		dec /= 10;
+	return (res + dec);
 }

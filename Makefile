@@ -1,10 +1,10 @@
-SRCS	= main.c color.c hook.c mandelbrot.c julia.c burningship.c utils.c
+SRCS	= main.c color.c hook.c fractols.c utils.c render.c error.c
 
 OBJS	= ${SRCS:.c=.o}
 
 NAME	= fractol
 
-FLAGSMLX	= -L mlx -lmlx -framework OpenGL -framework AppKit
+FLAGSMLX	= -L mlx -lmlx -Ofast -framework OpenGL -framework AppKit
 
 CFLAGS	= -Wall -Wextra -Werror
 
