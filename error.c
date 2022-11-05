@@ -6,13 +6,13 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:15:04 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/04 15:36:33 by maragao          ###   ########.fr       */
+/*   Updated: 2022/11/04 20:40:19 by maragao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fractol.h"
 
 int	error_msg(void)
 {
-		write(1, "Examples of valid arguments:\nmandelbrot\njulia 0.123 0.745", 58);
+		write(1, "Examples of valid arguments:\nmandelbrot\njulia 0.123 0.745", 57);
 		return (-1);
 }
