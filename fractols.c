@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   fractols.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:12:45 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/04 17:45:32 by maragao          ###   ########.fr       */
+/*   Updated: 2022/11/18 10:43:57 by maragao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	interations(t_vars *vars)
 	while (vars->interation < 150)
 	{
 		z_temp = vars->z.re;
-		vars->z.re = ((vars->z.re * vars->z.re)
-				- (vars->z.im * vars->z.im)) + vars->c.re;
+		vars->z.re = ((vars->z.re * vars->z.re)	- (vars->z.im * vars->z.im)) + vars->c.re;
 		vars->z.im = (2 * z_temp * vars->z.im) + vars->c.im;
 		if (((vars->z.re * vars->z.re) + (vars->z.im * vars->z.im)) > 4)
 			break ;
@@ -81,10 +80,8 @@ int	julia(t_vars *vars)
 		vars->x = 0;
 		while (vars->x < SIZE_WIN)
 		{
-			vars->z.im = vars->key_y + (vars->y - SIZE_WIN / 2.0)
-				/ (SIZE_WIN / 4.0) * vars->zoom;
-			vars->z.re = vars->key_x + (vars->x - SIZE_WIN / 2.0)
-				/ (SIZE_WIN / 4.0) * vars->zoom;
+			vars->z.im = vars->key_y + (vars->y - SIZE_WIN / 2.0) * 4.0 / SIZE_WIN / vars->zoom;
+			vars->z.re = vars->key_x + (vars->x - SIZE_WIN / 2.0) * 4.0 / (SIZE_WIN / vars->zoom);
 			vars->interation = interations(vars);
 			if (vars-> interation != 150)
 				put_color(vars);
