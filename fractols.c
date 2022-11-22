@@ -6,7 +6,7 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:12:45 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/22 17:16:56 by maragao          ###   ########.rio      */
+/*   Updated: 2022/11/22 18:27:56 by maragao          ###   ########.rio      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	julia(t_vars *vars)
 		while (vars->x < SIZE_WIN)
 		{
 			vars->z.im = vars->key_y + (vars->y - SIZE_WIN / 2.0) * 4.0 / (SIZE_WIN / vars->zoom);
-			vars->z.re = vars->key_x - (vars->x - SIZE_WIN / 2.0) * 4.0 / (SIZE_WIN / vars->zoom);
+			vars->z.re = 0.0 - (vars->key_x + (vars->x - SIZE_WIN / 2.0) * 4.0 / (SIZE_WIN / vars->zoom));
 			vars->interation = interations(vars);
 			if (vars-> interation != 150)
 				put_color(vars);
