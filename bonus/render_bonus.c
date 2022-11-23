@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:17:09 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/23 20:13:53 by maragao          ###   ########.rio      */
+/*   Updated: 2022/11/23 20:24:44 by maragao          ###   ########.rio      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	init_window(t_vars *vars)
 {
@@ -37,6 +37,8 @@ int	validation(int argc, char **argv, t_vars *vars)
 		vars->c.re = ft_atod(argv[2]);
 		vars->c.im = ft_atod(argv[3]);
 	}
+	else if (argc == 2 && (ft_strcmp(argv[1], "burning ship") == 0))
+		vars->validation = 3;
 	else
 		return (error_msg());
 	return (0);
@@ -51,6 +53,8 @@ int	render_fractol(t_vars *vars)
 		mandelbrot(vars);
 	if (vars->validation == 2)
 		julia(vars);
+	if (vars ->validation == 3)
+		burning_ship(vars);
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img, 0, 0);
 	return (0);
 }

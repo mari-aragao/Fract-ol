@@ -6,12 +6,11 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:17:12 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/04 16:22:10 by maragao          ###   ########.fr       */
+/*   Updated: 2022/11/23 17:36:04 by maragao          ###   ########.rio      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -20,7 +19,7 @@ int	main(int argc, char **argv)
 	vars.zoom = 1.0;
 	vars.key_x = 0.0;
 	vars.key_y = 0.0;
-	if (validation(argc, argv, &vars) == -1)
+	if (validation(argc, argv, &vars) == -5)
 		return (0);
 	init_window(&vars);
 	set_hook(vars.win, &vars);

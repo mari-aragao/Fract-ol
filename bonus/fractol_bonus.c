@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractols.c                                         :+:      :+:    :+:   */
+/*   fractol_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 18:12:45 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/23 20:12:56 by maragao          ###   ########.rio      */
+/*   Created: 2022/11/23 19:54:06 by maragao           #+#    #+#             */
+/*   Updated: 2022/11/23 20:21:36 by maragao          ###   ########.rio      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int	interations(t_vars *vars)
 {
@@ -72,6 +72,48 @@ int	julia(t_vars *vars)
 			vars-> x++;
 		}
 		vars-> y++;
+	}
+	return (0);
+}
+
+int	interations_bs(t_vars *vars)
+{
+	double	z_temp;
+
+	vars->interation = 0;
+	while (vars->interation < 200)
+	{
+		z_temp = vars->z.re;
+		vars->z.re = ((vars->z.re * vars->z.re)
+				- (vars->z.im * vars->z.im)) + vars->c.re;
+		vars->z.im = (fabs(2 * z_temp * vars->z.im)) + vars->c.im;
+		if (((vars->z.re * vars->z.re) + (vars->z.im * vars->z.im)) > 4)
+			break ;
+		vars->interation++;
+	}
+	return (vars->interation);
+}
+
+int	burning_ship(t_vars *vars)
+{
+	vars->y = 0;
+	while (vars->y < SIZE_WIN)
+	{
+		vars->x = 0;
+		vars->c.im = vars->key_y + (vars->y - SIZE_WIN / 2.0)
+			* 4.0 / (SIZE_WIN / vars->zoom);
+		while (vars->x < SIZE_WIN)
+		{
+			vars->c.re = vars->key_x + (vars->x - SIZE_WIN / 2.0)
+				* 4.0 / (SIZE_WIN / vars->zoom);
+			vars->z.re = 0;
+			vars->z.im = 0;
+			vars->interation = interations_bs(vars);
+			if (vars->interation != 200)
+				put_color(vars);
+			vars->x++;
+		}
+		vars->y++;
 	}
 	return (0);
 }
