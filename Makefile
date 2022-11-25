@@ -30,11 +30,11 @@ CC	= -Wall -Wextra -Werror
 .c.o:
 	cc ${CC} -c $< -o ${<:.c=.o}
 
-${NAME}:	all
-
-all:	${OBJS}
+${NAME}:	${OBJS}	
 	cd mlx && make &> /dev/null
 	cc ${CC} ${OBJS} ${MLX_FLAGS} -o ${NAME}
+
+all:	${NAME}
 
 bonus:	${OBJS_B}
 	cd mlx && make &> /dev/null
