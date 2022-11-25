@@ -6,7 +6,7 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:18:04 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/23 20:38:49 by maragao          ###   ########.rio      */
+/*   Updated: 2022/11/24 19:40:15 by maragao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "mlx/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 # define SIZE_WIN	800	
 
 typedef struct s_complex
@@ -49,6 +50,8 @@ int		error_msg(void);
 int		interations(t_vars *vars);
 int		mandelbrot(t_vars *vars);
 int		julia(t_vars *vars);
+int		interations_bs(t_vars *vars);
+int		burning_ship(t_vars *vars);
 int		exit_hook(t_vars *vars);
 int		key_press_hook(int key, t_vars *vars);
 int		mouse_hook(int key, int x, int y, t_vars *vars);

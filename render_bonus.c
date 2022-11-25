@@ -6,11 +6,11 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:17:09 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/23 20:24:44 by maragao          ###   ########.rio      */
+/*   Updated: 2022/11/24 19:42:18 by maragao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "fractol.h"
 
 void	init_window(t_vars *vars)
 {

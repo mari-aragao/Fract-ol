@@ -6,11 +6,11 @@
 /*   By: maragao <maragao@student.42.rio>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:54:06 by maragao           #+#    #+#             */
-/*   Updated: 2022/11/23 20:21:36 by maragao          ###   ########.rio      */
+/*   Updated: 2022/11/24 19:41:22 by maragao          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol_bonus.h"
+#include "fractol.h"
 
 int	interations(t_vars *vars)
 {
